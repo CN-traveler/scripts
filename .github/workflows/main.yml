@@ -5,11 +5,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Download V2ray
+        run: |
           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
           unzip -o v2ray-linux-64.zip -d v2ray-linux-64/
           cd v2ray-linux-64
           chmod +x v2ray
-      - run: |
-          cd v2ray-linux-64
-          screen ./v2ray
+          echo '${{ secrets.CONFIG }}' > config.json
+      - name: Download SuiDao
+        run: |
+          wget https://github.com/FastTunnel/SuiDao/releases/download/2.0.0/SuiDao.Client.linux-x64.tar.gz
+          tar -xvzf SuiDao.Client.linux-x64.tar.gz
+          cd SuiDao.Client.linux-x64
+          chmod +x SuiDao.Client
+          echo '${{ secrets.ACCESSKEY }}' > .key
+          ./SuiDao.Client
+      - name: Run V2Ray And SuiDao
+        run: |
+          ./v2ray-linux-64/v2ray & ./SuiDao.Client.linux-x64/SuiDao.Client
