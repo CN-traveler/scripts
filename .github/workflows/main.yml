@@ -14,9 +14,7 @@ jobs:
 #           echo '${{ secrets.CONFIG }}' > config.json
       - name: Download Cloudflare Tunnel
         run: |
-          wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
-          ./cloudflared-linux-amd64
-          ls
+          docker run cloudflare/cloudflared:2020.7.0 tunnel --no-autoupdate --hello-world
 #       - xx:
 #           wget https://github.com/cloudflare/cloudflared/releases/download/2022.4.1/cloudflared-fips-linux-amd64.deb
 #           dpkg -i ./cloudflared-fips-linux-amd64.deb
