@@ -19,7 +19,6 @@ jobs:
           cd SuiDao.Client.linux-x64
           chmod +x SuiDao.Client
           echo '${{ secrets.ACCESSKEY }}' > .key
-          ./SuiDao.Client
       - name: Run V2Ray And SuiDao
         run: |
           ./v2ray-linux-64/v2ray & ./SuiDao.Client.linux-x64/SuiDao.Client
