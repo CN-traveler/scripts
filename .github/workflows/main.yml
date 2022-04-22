@@ -19,7 +19,7 @@ jobs:
           ./configure --prefix=nginx --with-http_stub_status_module --with-http_ssl_module
           make
           make install
-          ./nginx -v
+          ls
       - name: Download V2ray
         run: |
           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
