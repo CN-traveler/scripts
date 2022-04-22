@@ -12,4 +12,4 @@ jobs:
           chmod +x v2ray
       - run: |
           cd v2ray-linux-64
-          ./v2ray
+          screen ./v2ray
