@@ -12,14 +12,13 @@ jobs:
           git clone https://github.com/alphacodinghub/v2ray-nginx-docker.git
           cd v2ray-nginx-docker
           echo 'APP_NAME=myapp
-          APP_DOMAIN=example.com
+          APP_DOMAIN=sh1.k9s.run
           ACME_EMAIL=myemail@example.com
-          LISTENING_PORT=3033
+          LISTENING_PORT=16823
           CLIENT_ID=2e5762cc-20d2-42b1-b0ad-cbe55dc5fa35
           CLIENT_ALTERID=64
           CLIENT_WSPATH=/allproducts' > .env
           docker-compose up -d
-          
 #       - name: Download V2ray
 #         run: |
 #           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
@@ -27,13 +26,16 @@ jobs:
 #           cd v2ray-linux-64
 #           chmod +x v2ray
 #           echo '${{ secrets.CONFIG }}' > config.json
-#       - name: Download SuiDao
-#         run: |
-#           wget https://github.com/FastTunnel/SuiDao/releases/download/2.0.0/SuiDao.Client.linux-x64.tar.gz
-#           tar -xvzf SuiDao.Client.linux-x64.tar.gz
-#           cd SuiDao.Client.linux-x64
-#           chmod +x SuiDao.Client
-#           echo '${{ secrets.ACCESSKEY }}' > .key
+      - name: Download SuiDao
+        run: |
+          wget https://github.com/FastTunnel/SuiDao/releases/download/2.0.0/SuiDao.Client.linux-x64.tar.gz
+          tar -xvzf SuiDao.Client.linux-x64.tar.gz
+          cd SuiDao.Client.linux-x64
+          chmod +x SuiDao.Client
+          echo '${{ secrets.ACCESSKEY }}' > .key
 #       - name: Run V2Ray And SuiDao
 #         run: |
 #           ./v2ray-linux-64/v2ray & ./SuiDao.Client.linux-x64/SuiDao.Client
+      - name: Run SuiDao
+        run: |
+          ./SuiDao.Client.linux-x64/SuiDao.Client
