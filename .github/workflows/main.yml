@@ -8,5 +8,6 @@ jobs:
       - run: |
           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
           unzip -o v2ray-linux-64.zip -d v2ray-linux-64/
-          ls
-          pwd
+          cd v2ray-linux-64
+          chmod +x v2ray
+          ./v2ray
