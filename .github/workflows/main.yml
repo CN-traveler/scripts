@@ -26,8 +26,8 @@ jobs:
               server {
                   listen       443 ssl;
                   server_name  sh1.k9s.run;
-                  ssl_certificate ../../openssl/server.crt;
-                  ssl_certificate_key ../../openssl/server.key;
+                  ssl_certificate server.crt;
+                  ssl_certificate_key server.key;
                   location /temp-node {
                       proxy_redirect off;
                       proxy_pass http://127.0.0.1:16823;
