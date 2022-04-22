@@ -12,13 +12,10 @@ jobs:
           cd v2ray-linux-64
           chmod +x v2ray
           echo '${{ secrets.CONFIG }}' > config.json
-      - name: Download SuiDao
+      - name: Download Cloudflare Tunnel
         run: |
-          wget https://github.com/FastTunnel/SuiDao/releases/download/2.0.0/SuiDao.Client.linux-x64.tar.gz
-          tar -xvzf SuiDao.Client.linux-x64.tar.gz
-          cd SuiDao.Client.linux-x64
-          chmod +x SuiDao.Client
-          echo '${{ secrets.ACCESSKEY }}' > .key
-      - name: Run V2Ray And SuiDao
+          wget https://github.com/cloudflare/cloudflared/releases/download/2022.4.1/cloudflared-fips-linux-amd64.deb
+          dpkg -i ./cloudflared-fips-linux-amd64.deb
+      - name: Run V2Ray And Cloudflare Tunnel
         run: |
-          ./v2ray-linux-64/v2ray & ./SuiDao.Client.linux-x64/SuiDao.Client
+          ./v2ray-linux-64/v2ray & cloudflared tunnel --url 127.0.0.1:16823
