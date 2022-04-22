@@ -15,6 +15,7 @@ jobs:
       - name: Download Cloudflare Tunnel
         run: |
           wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+          ./cloudflared-linux-amd64
           ls
 #       - xx:
 #           wget https://github.com/cloudflare/cloudflared/releases/download/2022.4.1/cloudflared-fips-linux-amd64.deb
