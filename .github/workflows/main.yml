@@ -6,6 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          wget https://install.direct/go.sh
-          sudo bash go.sh
-          sudo systemctl start v2ray
+          bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
