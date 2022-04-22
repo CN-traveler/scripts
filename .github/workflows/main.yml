@@ -5,10 +5,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Certificate
+      - name: Clone Docker
         run: |
-          openssl genrsa -out server.key 1024
-          openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=US/ST=Utah/L=Lehi/O=CN, Inc./OU=IT/CN=sh1.k9s.run"
+          mkdir /app
+          cd /app
+          git clone https://github.com/alphacodinghub/v2ray-nginx-docker.git
+          cd v2ray-nginx-docker
+          echo 'APP_NAME=myapp
+          APP_DOMAIN=example.com
+          ACME_EMAIL=myemail@example.com
+          LISTENING_PORT=3033
+          CLIENT_ID=2e5762cc-20d2-42b1-b0ad-cbe55dc5fa35
+          CLIENT_ALTERID=64
+          CLIENT_WSPATH=/allproducts' > .env
+          docker-compose up -d
+          
 #       - name: Download V2ray
 #         run: |
 #           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
