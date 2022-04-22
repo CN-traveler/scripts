@@ -14,7 +14,9 @@ jobs:
           make
           make install
           openssl genrsa -out server.key 1024
+          chmod +r server.key
           openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=US/ST=Utah/L=Lehi/O=CN, Inc./OU=IT/CN=sh1.k9s.run"
+          chmod +r server.crt
           echo '#user  nobody;
           worker_processes  1;
           events {
