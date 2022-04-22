@@ -11,4 +11,5 @@ jobs:
           cd v2ray-linux-64
           chmod +x v2ray
       - run: |
+          cd v2ray-linux-64
           ./v2ray
