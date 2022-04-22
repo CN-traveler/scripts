@@ -5,12 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Certificate
-        run: |
-          mkdir openssl
-          cd openssl
-          openssl genrsa -out server.key 1024
-          openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=US/ST=Utah/L=Lehi/O=CN, Inc./OU=IT/CN=sh1.k9s.run"
       - name: Download Nginx
         run: |
           wget https://nginx.org/download/nginx-1.20.2.tar.gz
@@ -49,7 +43,12 @@ jobs:
                 }
             }
           }'> ./nginx/conf/nginx.conf
-          ./nginx/sbin/nginx -t
+      - name: Generate Certificate
+        run: |
+          cd nginx/conf
+          openssl genrsa -out server.key 1024
+          openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=US/ST=Utah/L=Lehi/O=CN, Inc./OU=IT/CN=sh1.k9s.run"
+      - run: ./nginx/sbin/nginx -t
       - name: Download V2ray
         run: |
           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
