@@ -7,8 +7,8 @@ jobs:
     steps:
       - name: Clone Docker
         run: |
-          mkdir /app
-          cd /app
+          mkdir app
+          cd app
           git clone https://github.com/alphacodinghub/v2ray-nginx-docker.git
           cd v2ray-nginx-docker
           echo 'APP_NAME=myapp
