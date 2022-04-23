@@ -9,9 +9,12 @@ jobs:
         run: |
           wget https://nginx.org/download/nginx-1.20.2.tar.gz
           tar zxvf nginx-1.20.2.tar.gz
-          ./nginx-1.20.2/configure --prefix=nginx --with-http_stub_status_module --with-http_ssl_module
+          cd nginx-1.20.2
+          ./configure --prefix=nginx --with-http_stub_status_module --with-http_ssl_module
           make
           make install
+          ls
+          cd ..
           ls
 #       - name: Install V2ray
 #         run: |
