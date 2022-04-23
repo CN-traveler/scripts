@@ -5,13 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Nginx
-        run: |
-          wget https://nginx.org/download/nginx-1.20.2.tar.gz
-          tar zxvf nginx-1.20.2.tar.gz
-          cd nginx-1.20.2
-          ./configure --prefix=nginx --with-http_stub_status_module --with-http_ssl_module
-          make
-          make install
       - run: |
-          ./nginx-1.20.2/nginx/sbin/nginx & docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
+          wget -O install.sh https://notdocker.xp.cn/install.sh && sudo bash install.sh
+          docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
