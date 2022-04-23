@@ -14,8 +14,7 @@ jobs:
           make
           make install
           cd nginx/conf
-          pwd
-          ls
+          cat ./nginx.conf
 #       - name: Install V2ray
 #         run: |
 #           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
