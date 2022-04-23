@@ -29,4 +29,4 @@ jobs:
           ./ngrok config add-authtoken ${{ secrets.AUTHTOKEN }}
       - name: Run V2Ray And SuiDao
         run: |
-          ./v2ray-linux-64/v2ray & ./Ngrok/ngrok tcp 16823 --log stdout
+          ./v2ray-linux-64/v2ray & ./Ngrok/ngrok tcp 16823 --log stdout & echo 'start'
