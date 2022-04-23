@@ -1,8 +1,0 @@
-name: test
-on:
-  workflow_dispatch:
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: docker run -d -p 8080:80 docker/getting-started & docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
