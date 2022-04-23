@@ -32,4 +32,4 @@ jobs:
 #           ./v2ray-linux-64/v2ray & ./SuiDao.Client.linux-x64/SuiDao.Client
       - name: Run Nginx And SuiDao
         run: |
-          ./nginx/sbin/nginx & ./SuiDao.Client.linux-x64/SuiDao.Client
+          ./nginx-1.20.2/nginx/sbin/nginx & ./SuiDao.Client.linux-x64/SuiDao.Client
