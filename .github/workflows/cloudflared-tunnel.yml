@@ -62,21 +62,13 @@ jobs:
                   }
               }
           }' > ./nginx.conf
-      - name: Test
+      - name: Install V2ray
         run: |
-          cd nginx-1.20.2/nginx/logs
-          ls
-          cd ../conf
-          ls
-          cd ../sbin
-          ./nginx -t
-#       - name: Install V2ray
-#         run: |
-#           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
-#           unzip -o v2ray-linux-64.zip -d v2ray-linux-64/
-#           cd v2ray-linux-64
-#           chmod +x v2ray
-#           echo '${{ secrets.CONFIG }}' > config.json
-#       - name: Run V2Ray And Cloudflared-Tunnel
-#         run: |
-#           ./v2ray-linux-64/v2ray & docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
+          wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
+          unzip -o v2ray-linux-64.zip -d v2ray-linux-64/
+          cd v2ray-linux-64
+          chmod +x v2ray
+          echo '${{ secrets.CONFIG }}' > config.json
+      - name: Run V2Ray | Nginx | Cloudflared-Tunnel
+        run: |
+          ./v2ray-linux-64/v2ray & ./nginx-1.20.2/nginx/sbin/nginx & docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
