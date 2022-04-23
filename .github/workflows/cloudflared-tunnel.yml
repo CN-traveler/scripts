@@ -13,7 +13,7 @@ jobs:
           ./configure --prefix=nginx --with-http_stub_status_module --with-http_ssl_module
           make
           make install
-          cd nginx
+          cd nginx/conf
           pwd
           ls
 #       - name: Install V2ray
