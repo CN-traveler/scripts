@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          wget -O install.sh https://notdocker.xp.cn/install.sh && sudo bash install.sh
+          docker run -d -p 80:80 docker/getting-started
           docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.TOKEN }}
