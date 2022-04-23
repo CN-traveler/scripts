@@ -5,6 +5,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Config Pem And Key
+        run: |
+          mkdir secrets
+          cd secrets
+          echo '${{ secrets.PEM }}' > server.pem
+          echo '${{ secrets.KEY }}' > server.key
       - name: Install Nginx
         run: |
           wget https://nginx.org/download/nginx-1.20.2.tar.gz
@@ -14,8 +20,6 @@ jobs:
           make
           make install
           cd nginx/conf
-          echo '${{ secrets.PEM }}' > /home/runner/work/temp-proxy/temp-proxy/secrets/server.pem
-          echo '${{ secrets.KEY }}' > /home/runner/work/temp-proxy/temp-proxy/secrets/server.key
           echo '#user  nobody;
           worker_processes  1;
           events {
