@@ -64,9 +64,12 @@ jobs:
           }' > ./nginx.conf
       - name: Test
         run: |
-          cd nginx-1.20.2/nginx
+          cd nginx-1.20.2/nginx/logs
           ls
-          ./sbin/nginx -t
+          cd ../conf
+          ls
+          cd ../sbin
+          ./nginx -t
 #       - name: Install V2ray
 #         run: |
 #           wget https://github.com/v2fly/v2ray-core/releases/download/v4.44.0/v2ray-linux-64.zip
