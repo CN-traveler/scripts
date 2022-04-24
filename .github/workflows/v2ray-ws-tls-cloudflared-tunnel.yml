@@ -1,0 +1,12 @@
+name: v2ray-ws-tls-cloudflared-tunnel
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: CN-traveler/v2ray-ws-tls-cloudflared-tunnel@2.0.0
+        with:
+          id: '62268a5f-31b6-45d0-8acc-6cee62d7a554'
+          path: '/cloudflared-tunnel'
+          token: '${{ secrets.TOKEN }}'
