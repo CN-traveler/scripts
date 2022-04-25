@@ -8,4 +8,4 @@ jobs:
       - uses: CN-traveler/ssh-cloudflared-tunnel@1.0.0
         with:
           password: 123456
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.SSH_TOKEN }}
