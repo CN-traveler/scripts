@@ -5,6 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          docker run cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.VNC_TOKEN }}
+      - run: | 
+          docker run -d cloudflare/cloudflared:2022.4.1 tunnel --no-autoupdate run --token ${{ secrets.VNC_TOKEN }} &
           docker run -p 80:80 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc:latest
