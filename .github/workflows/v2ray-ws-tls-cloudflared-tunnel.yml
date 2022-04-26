@@ -1,8 +1,6 @@
 name: v2ray-ws-tls-cloudflared-tunnel
 on:
   workflow_dispatch:
-#   schedule:
-#     - cron: "0 */6 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
