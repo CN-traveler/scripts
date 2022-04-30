@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test apt
-        run: sudo apt-get install -y nginx
+      - name: Test script
+        run: sudo sleep 20
