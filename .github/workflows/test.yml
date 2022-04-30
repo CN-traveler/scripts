@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test apt
-        run: apt-get install -y libxml2-utils
+        run: apt-get install -y nginx
