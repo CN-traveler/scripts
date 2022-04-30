@@ -12,7 +12,5 @@ jobs:
       - name: Test script2
         run: |
           sudo curl localhost:80
-          sudo curl localhost:443
           sleep 20
           sudo curl localhost:80
-          sudo curl localhost:443
