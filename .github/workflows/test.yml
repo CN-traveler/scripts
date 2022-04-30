@@ -5,5 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Test script
-        run: sudo sleep 20
+      - name: Test script1
+        run: |
+          sudo apt-get install -y nginx
+          sudp nginx
+      - name: Test script2
+        run: |
+          sudo curl localhost:80
+          sudo curl localhost:443
+          sleep 20
+          sudo curl localhost:80
+          sudo curl localhost:443
