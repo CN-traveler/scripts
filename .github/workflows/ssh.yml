@@ -1,0 +1,12 @@
+name: ssh
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
+          echo "root:123456" | chpasswd
+          cloudflared service install ${{ secrets.SSH_TOKEN }}
+          tail -f /var/log/alternatives.log
