@@ -8,8 +8,8 @@ jobs:
           sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
           sudo dpkg -i cloudflared-linux-amd64.deb
           sudo echo -e "123456\n123456" | sudo passwd "root"
-          sudo apt-get install -y openssh-server && \
-          sudo echo "PermitRootLogin yes\nUsePAM no" > /etc/ssh/sshd_config.d/sshd.conf && \
-          sudo cloudflared service install ${{ secrets.SSH_TOKEN }}
+          sudo apt-get install -y openssh-server
+          sudo echo -e "PermitRootLogin yes\nUsePAM no" > /etc/ssh/sshd_config.d/sshd.conf
           sudo service ssh start
+          sudo cloudflared service install ${{ secrets.SSH_TOKEN }}
       - run: sudo tail -f /var/log/alternatives.log
