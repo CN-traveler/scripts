@@ -23,5 +23,4 @@ jobs:
           sudo sleep 5
           mkdir imgdir
           sudo criu dump -D imgdir --shell-job --ext-unix-sk -t $(cat pid.out)
-          cd imgdir
-          ls
+          sudo criu restore --shell-job --images-dir imgdir
