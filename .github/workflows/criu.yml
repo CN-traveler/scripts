@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo echo '{ "cgroup-parent": "/actions_job", "experimental": true }' > /etc/docker/daemon.json
           sudo apt-get install -y criu
+          sudo docker version
+          sudo echo -e "{ \"cgroup-parent\": \"/actions_job\", \"experimental\": true }" > /etc/docker/daemon.json
           sudo docker run -p 80:80 nginx &
           sudo sleep 60
           sudo docker checkpoint create test
-          sudo docker checkpoint create ls
-          
+          sudo docker checkpoint create l
