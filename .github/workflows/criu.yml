@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          whoami
           stat /etc/docker/daemon.json
 #     sudo apt-get install -y criu
 #     sudo docker version
