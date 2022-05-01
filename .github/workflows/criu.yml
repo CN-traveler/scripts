@@ -7,7 +7,6 @@ jobs:
       - run: |
           sudo apt-get install -y criu
           sudo docker version
-          sudo echo -e "{ \"cgroup-parent\": \"/actions_job\", \"experimental\": true }" > /etc/docker/daemon.json
           sudo docker run -p 80:80 nginx &
           sudo sleep 60
           sudo docker checkpoint create test
