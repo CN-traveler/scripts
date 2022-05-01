@@ -20,7 +20,7 @@ jobs:
           sudo gcc test.c -o test
           sudo ./test &
           sudo echo $! > pid.out
-          sudo sleep 30
+          sudo sleep 5
           mkdir imgdir
           sudo criu dump -D imgdir --shell-job -t $(cat pid.out)
           cd imgdir
