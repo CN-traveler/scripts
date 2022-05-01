@@ -6,7 +6,7 @@ jobs:
     steps:
       - run: |
           sudo chmod +w /etc/docker/daemon.json
-          echo "test" > /etc/docker/daemon.json
+          sudo echo "test" > /etc/docker/daemon.json
 #     sudo apt-get install -y criu
 #     sudo docker version
 #     sudo docker run -p 80:80 nginx &
