@@ -10,6 +10,6 @@ jobs:
           sudo echo $! > pid.out
           sudo sleep 30
           mkdir imgdir
-          sudo criu dump -D imgdir -j -t $(cat pid.out)
+          sudo criu dump -D imgdir -j --ext-unix-sk -t $(cat pid.out)
           cd imgdir
           ls
