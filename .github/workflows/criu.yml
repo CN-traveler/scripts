@@ -6,7 +6,7 @@ jobs:
     steps:
       - run: |
           sudo apt-get install -y criu
-          sudo docker run -p 80:80 nginx "i = 1; while do sleep 1; date; done" &
+          sudo docker run -p 80:80 nginx &
           sudo echo $! > pid.out
           sudo sleep 60
           sudo criu dump -D imgdir -j -t $(cat pid.out)
