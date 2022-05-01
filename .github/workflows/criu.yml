@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          export DOCKER_CLI_EXPERIMENTAL=enabled
-          sudo systemctl restart docker
           sudo docker version
+#       export DOCKER_CLI_EXPERIMENTAL=enabled
+#       sudo systemctl restart docker
 #       sudo apt-get install -y criu
 #       sudo docker run -p 80:80 nginx &
 #       sudo sleep 60
