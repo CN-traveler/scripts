@@ -5,11 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo docker version
-#       export DOCKER_CLI_EXPERIMENTAL=enabled
-#       sudo systemctl restart docker
-#       sudo apt-get install -y criu
-#       sudo docker run -p 80:80 nginx &
+          sudo apt-get install -y criu
+          sudo docker run -p 80:80 nginx "i = 1; while do sleep 1; date; done" &
+          sudo ps -aux
 #       sudo sleep 60
-#       sudo docker checkpoint create test
-#       sudo docker checkpoint create l
+#       sudo criu jump 
