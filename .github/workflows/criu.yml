@@ -22,6 +22,6 @@ jobs:
           sudo echo $! > pid.out
           sudo sleep 30
           mkdir imgdir
-          sudo criu dump -D imgdir -t $(cat pid.out)
+          sudo criu dump -D imgdir --shell-job -t $(cat pid.out)
           cd imgdir
           ls
