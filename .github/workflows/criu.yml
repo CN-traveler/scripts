@@ -5,11 +5,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          sudo apt-get install -y gcc
           sudo apt-get install -y criu
-          sudo docker run -p 80:80 nginx &
+          echo "#include<stdio.h>
+          #include<unistd.h>
+          int main() {
+            int i = 1;
+            while(i) {
+              printf("%d\n", i++);
+              sleep(1);
+            }
+            return 0;
+          }" > test.c
+          sudo gcc test.c -o test
+          sudo ./test &
           sudo echo $! > pid.out
           sudo sleep 30
           mkdir imgdir
-          sudo criu dump -D imgdir -j --ext-unix-sk -t $(cat pid.out)
+          sudo criu dump -D imgdir -t $(cat pid.out)
           cd imgdir
           ls
