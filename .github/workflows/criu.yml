@@ -1,0 +1,8 @@
+name: criu
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cat /etc/docker/daemon.json
