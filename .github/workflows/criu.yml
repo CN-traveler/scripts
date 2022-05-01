@@ -8,5 +8,5 @@ jobs:
           sudo apt-get install -y criu
           sudo docker run -p 80:80 nginx &
           sudo echo $! > pid.out
-          sudo sleep 60
+          sudo sleep 30
           sudo criu dump -D imgdir -j -t $(cat pid.out)
