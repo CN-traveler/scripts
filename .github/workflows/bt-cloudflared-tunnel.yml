@@ -1,4 +1,4 @@
-name: ngrok
+name: bt-cloudflared-tunnel
 on:
   workflow_dispatch:
 jobs:
