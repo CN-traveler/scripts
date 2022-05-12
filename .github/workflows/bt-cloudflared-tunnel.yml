@@ -1,0 +1,18 @@
+name: ngrok
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install BT
+        run: |
+          sudo wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh
+          sudo bash install.sh ed8484bec
+      - name: Install Cloudflare Tunnel
+        run: |
+          curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb && 
+          sudo dpkg -i cloudflared.deb && 
+          sudo cloudflared service install ${{ secrets.BT_TOKEN }}
+      - name: Keep Action
+        run: tail -f /var/log/alternatives.log
