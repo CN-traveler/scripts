@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Install XP
         run: |
-          sudo wget -O install.sh https://download.xp.cn/install.sh
+          sudo wget -O install.sh https://notdocker.xp.cn/install.sh
           sudo bash install.sh
       - name: Install Cloudflare Tunnel
         run: |
