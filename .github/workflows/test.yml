@@ -1,0 +1,11 @@
+name: test
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: CN-traveler/xp-cloudflared-tunnel@master
+        with:
+          token: '${{ secrets.XP_TOKEN }}'
+          password: '123456'
