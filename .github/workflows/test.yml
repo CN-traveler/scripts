@@ -5,7 +5,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: CN-traveler/xp-cloudflared-tunnel@master
+      - uses: CN-traveler/private-action@main
         with:
-          token: '${{ secrets.XP_TOKEN }}'
-          password: '123456'
+          owner: CN-traveler
+          repo: discuz-private
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
