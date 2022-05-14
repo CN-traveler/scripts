@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo cat /etc/passwd
+          sudo cat /etc/shadow
 #       sudo apt-get install -y openssh-server
 #       sudo service ssh start
 #       sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
