@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-          sudo dpkg -i cloudflared-linux-amd64.deb
-          sudo echo "runner:123456" | chpasswd
+          sudo echo -e "123456\n123456" | passwd
           sudo apt-get install -y openssh-server
           sudo service ssh start
+          sudo wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
           sudo cloudflared service install ${{ secrets.SSH_TOKEN }}
       - run: sudo tail -f /var/log/alternatives.log
