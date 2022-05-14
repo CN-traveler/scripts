@@ -6,6 +6,9 @@ jobs:
     steps:
       - run: |
           sudo cat /etc/shadow
+          sudo echo -e "123456\n123456" | passwd
+      - if: ${{ failure() }}
+        run: |
           sudo cat /etc/passwd
 #       sudo apt-get install -y openssh-server
 #       sudo service ssh start
