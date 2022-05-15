@@ -10,4 +10,3 @@ jobs:
           owner: CN-traveler
           repo: discuz-private
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - uses: mxschmitt/action-tmate@v1
