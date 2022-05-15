@@ -5,9 +5,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-        - uses: mxschmitt/action-tmate@v1
-#       - uses: CN-traveler/private-action@main
-#         with:
-#           owner: CN-traveler
-#           repo: discuz-private
-#           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: CN-traveler/private-action@main
+        with:
+          owner: CN-traveler
+          repo: discuz-private
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - uses: mxschmitt/action-tmate@v1
