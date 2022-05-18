@@ -1,0 +1,11 @@
+name: halo
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: CN-traveler/private-action@main
+        with:
+          owner: CN-traveler
+          repo: halo-private
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
