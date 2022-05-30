@@ -13,4 +13,10 @@ jobs:
         uses: actions/setup-python@v3.1.2
       - run: |
           python3 ./setup.py install
-          python3 ./examples/reCaptchaV2/demo.py
+          cd ./examples/reCaptchaV2/
+          wget https://msedgedriver.azureedge.net/101.0.1210.53/edgedriver_linux64.zip
+          unzip edgedriver_linux64.zip
+          mv msedgedriver msedgedriver.exe
+          ls
+          pwd
+          python3 ./demo.py
