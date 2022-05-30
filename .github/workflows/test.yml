@@ -13,4 +13,4 @@ jobs:
         uses: actions/setup-python@v3.1.2
       - run: |
           pip install PyPasser
-          py ./examples/reCaptchaV2/demo.py
+          python3 ./examples/reCaptchaV2/demo.py
